@@ -2,20 +2,27 @@ import "../styles/global.scss";
 
 import Head from 'next/head';
 import Layout from '../components/Layout/Layout';
-import { useRouter } from 'next/router';
+import { useState } from "react";
 
-const name = 'Lukortech'
-export const siteTitle = 'Next.js Sample Website'
 
-const NotFound = () => <div>Not found, sorry!</div>
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   // ...
+// }
+
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   // ...
+// }
+
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   // ...
+// }
 
 export default function CustomApp({ Component, pageProps }) {
-    const router = useRouter();
-    // What's the output when we go to http://localhost:3000/about
-    console.log(router.route);
-    // What's the output when we go to http://localhost:3000/About
-
-    return (
+const [siteTitle, setSiteTitle] = useState('Welcome to NextJs!')
+const [name, setName] = useState('Lukortech')
+return (
         <Layout>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
@@ -32,11 +39,7 @@ export default function CustomApp({ Component, pageProps }) {
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            
-            {/* What's rendered under /About and /about? */}
-            {/* {Component.name === "Home" ? <Component {...pageProps} /> : <NotFound />} */}
             <Component {...pageProps} />
-            {/* What's rendered under `/` (custom home folder) */}
         </Layout>
     )
 }

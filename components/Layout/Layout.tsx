@@ -1,5 +1,3 @@
-import "./layout.module.scss";
-
-const Layout = ({children}) => <div className="layout">{children}</div>
+const Layout = ({children}) => <>{children}</>
 
 export default Layout;

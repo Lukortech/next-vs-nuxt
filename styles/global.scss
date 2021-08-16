@@ -1,2 +1,53 @@
 @use "../node_modules/bootstrap/scss/bootstrap";
+@use "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 @use "./home";
+
+$animationColor: rgba(30, 49, 77, 0.2);
+
+@mixin rings($duration, $delay) {
+    opacity: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border: 8px solid $animationColor;
+    border-radius: 100%;
+    animation-name: ripple;
+    animation-duration: $duration;
+    animation-delay: $delay;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+    z-index: -1;
+}
+
+.a-ping {
+    &::after {
+        @include rings(3s, 0s);
+    }
+
+    &::before {
+        @include rings(3s, 0.5s);
+    }
+}
+
+@keyframes ripple {
+    from {
+        opacity: 1;
+        transform: scale3d(0.75,0.75,1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale3d(1.5,1.5,1);
+    }
+}
+
+.cursor-pointer {
+    cursor: pointer !important;
+}

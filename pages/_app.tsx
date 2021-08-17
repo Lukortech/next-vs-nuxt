@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Head from 'next/head';
-// import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/dist/client/router";
 import Layout from '../components/Layout/Layout';
 import TakeMeHomeCountryRoads from '../components/TakeMeHomeCountryRoads/TakeMeHomeCountryRoads';
 import "../styles/global.scss";
@@ -9,11 +9,19 @@ import { AnimateSharedLayout } from "framer-motion"
 export default function CustomApp({ Component, pageProps }) {
     const [siteTitle] = useState('Lukortech? More like lukor_teach!');
     const [shouldShowHomepageButton, setShouldShowHomepageButton] = useState(Component.name !== "Home");
-    // const router = useRouter();
+    const router = useRouter();
 
     useEffect(() => {
         setShouldShowHomepageButton(Component.name !== "Home" || Component.name !== "NotFound");
     }, [Component.name])
+
+    useEffect(() => {
+        // When we want to have client side redirects : 
+        // if(Component.name === "Mainpage") router.replace("/home")
+        // if(Component.name === "Mainpage") router.push("/home")
+    }, [Component.name])
+
+    console.log(router);
 
     return (
         <AnimateSharedLayout>

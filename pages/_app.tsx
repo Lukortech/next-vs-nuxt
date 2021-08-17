@@ -11,17 +11,18 @@ export default function CustomApp({ Component, pageProps }) {
     const [shouldShowHomepageButton, setShouldShowHomepageButton] = useState(Component.name !== "Home");
     const router = useRouter();
 
+
+     //TODO: fix the button ffs
     useEffect(() => {
         setShouldShowHomepageButton(Component.name !== "Home" || Component.name !== "NotFound");
     }, [Component.name])
 
     useEffect(() => {
+        //TODO: check this routing issue
         // When we want to have client side redirects : 
         // if(Component.name === "Mainpage") router.replace("/home")
-        // if(Component.name === "Mainpage") router.push("/home")
+        if(Component.name === "Mainpage") router.push("/home")
     }, [Component.name])
-
-    console.log(router);
 
     return (
         <AnimateSharedLayout>

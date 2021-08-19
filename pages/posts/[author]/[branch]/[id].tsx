@@ -6,7 +6,7 @@ const AuthorDetails = () => {
     const [author, setAuthor] = useState<string>("");
     const [branch, setBranch] = useState<string>("");
     const [id, setId] = useState<string>("");
-    
+
     useEffect(() => {
         if (router.isReady) {
             const { author, branch, id } = router.query;

@@ -4,8 +4,8 @@ const apiUrl = `https://api.twitter.com/2/tweets/${process.env.TWEET_ID}/liking_
 
 export async function fetchTweetLikes() {
     let res = null;
-    
-    try{
+
+    try {
         res = await fetch(apiUrl, {
             method: 'GET', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
@@ -15,7 +15,7 @@ export async function fetchTweetLikes() {
             },
             referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
         });
-    } catch(e){
+    } catch (e) {
         console.error(e);
     }
 
@@ -26,15 +26,13 @@ export async function fetchTweetLikes() {
 export const getStaticProps: GetStaticProps = async () => {
     const tweet = await fetchTweetLikes();
 
-    return { 
+    return {
         revalidate: 10,
-        props: { tweet } 
+        props: { tweet }
     };
 }
 
-const DynamicPage = ({tweet}) => {
-    console.log(tweet.meta.result_count);
-
+const DynamicPage = ({ tweet }) => {
     return (
         <div className="container mt-5">
             <div className="row">

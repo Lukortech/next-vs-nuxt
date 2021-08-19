@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
     return (
-        <div className="container mt-5" style={{overflow: "hidden"}}>
+        <div className="container mt-5" style={{ overflow: "hidden" }}>
             <div className="row">
                 <div className="col-12">
                     <motion.h2
@@ -28,12 +28,12 @@ export default function Home() {
 
                         <Link href="/about"
                         >
-                            <motion.a 
-                                className="text-muted border rounded my-3 p-3 cursor-pointer" 
+                            <motion.a
+                                className="text-muted border rounded my-3 p-3 cursor-pointer"
                                 layoutId="aboutLink"
                                 initial={{ scale: 2, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 1, delay:0.1 }}
+                                transition={{ duration: 1, delay: 0.1 }}
                             >
                                 About
                             </motion.a>
@@ -41,12 +41,12 @@ export default function Home() {
 
                         <Link href="/"
                         >
-                            <motion.a 
-                                className="text-muted border rounded my-3 p-3 cursor-pointer" 
+                            <motion.a
+                                className="text-muted border rounded my-3 p-3 cursor-pointer"
                                 layoutId="coreLink"
                                 initial={{ scale: 2, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 1, delay:0.3 }}
+                                transition={{ duration: 1, delay: 0.3 }}
                             >
                                 Core?
                             </motion.a>
@@ -54,12 +54,12 @@ export default function Home() {
 
                         <Link href="/blog"
                         >
-                            <motion.a 
-                                className="text-muted border rounded my-3 p-3 cursor-pointer" 
+                            <motion.a
+                                className="text-muted border rounded my-3 p-3 cursor-pointer"
                                 layoutId="blogLink"
                                 initial={{ scale: 2, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
-                                transition={{ duration: 1, delay:0.5 }}
+                                transition={{ duration: 1, delay: 0.5 }}
                             >
                                 Blog
                             </motion.a>

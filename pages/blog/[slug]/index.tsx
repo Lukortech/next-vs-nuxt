@@ -15,7 +15,7 @@ const BlogPost = ({
                 <div className="col-12 mt-1">
                     <small className="text-secondary">Blog post on: <Link href={`${slug as string}`}><a>{title}</a></Link> from {date}</small>
                 </div>
-            </div>            
+            </div>
             <main className="">
                 <div className="container mt-5">
                     <div className="row d-flex justify-content-center align-items-center py-5">

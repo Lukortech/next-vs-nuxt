@@ -8,21 +8,13 @@ import { AnimateSharedLayout } from "framer-motion"
 
 export default function CustomApp({ Component, pageProps }) {
     const [siteTitle] = useState('Lukortech? More like lukor_teach!');
-    const [shouldShowHomepageButton, setShouldShowHomepageButton] = useState(Component.name !== "Home");
-    const router = useRouter();
+    const [shouldShowHomepageButton] = useState(true);
 
-
-     //TODO: fix the button ffs
-    useEffect(() => {
-        setShouldShowHomepageButton(Component.name !== "Home" || Component.name !== "NotFound");
-    }, [Component.name])
-
-    useEffect(() => {
-        //TODO: check this routing issue
-        // When we want to have client side redirects : 
-        // if(Component.name === "Mainpage") router.replace("/home")
-        if(Component.name === "Mainpage") router.push("/home")
-    }, [Component.name])
+    // If we want to have client side redirects:
+    // useEffect(() => {
+    // if(Component.name === "Mainpage") router.replace("/home")
+    // if(Component.name === "Mainpage") router.push("/home")
+    // }, []) or you can use router.query etc.
 
     return (
         <AnimateSharedLayout>
@@ -43,7 +35,7 @@ export default function CustomApp({ Component, pageProps }) {
                     <meta name="twitter:card" content="summary_large_image" />
                 </Head>
                 <Component {...pageProps} />
-                {shouldShowHomepageButton && <TakeMeHomeCountryRoads />}
+                {shouldShowHomepageButton ? <TakeMeHomeCountryRoads /> : null}
             </Layout>
         </AnimateSharedLayout>
     )
